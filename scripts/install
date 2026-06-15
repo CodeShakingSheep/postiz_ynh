@@ -17,6 +17,17 @@ ynh_app_setting_set --key=jwt_secret --value=$jwt_secret
 ynh_app_setting_set --key=redis_db --value=$redis_db
 
 #=================================================
+# DOWNLOAD, CHECK AND UNPACK SOURCE
+#=================================================
+ynh_script_progression "Setting up source files..."
+
+# Download, check integrity, uncompress and patch the source from manifest.toml
+ynh_setup_source --dest_dir="$install_dir"
+
+# Download and extract temporal
+ynh_setup_source --source_id="temporal" --dest_dir="$install_dir/temporal"
+
+#=================================================
 # INSTALL DEPENDENCIES
 #=================================================
 ynh_script_progression "Installing dependencies..."
@@ -27,17 +38,6 @@ npm install -g "pnpm@${PNPM_VERSION}"
 #npm install --global corepack@latest
 #corepack enable pnpm
 #corepack use pnpm@latest
-
-#=================================================
-# DOWNLOAD, CHECK AND UNPACK SOURCE
-#=================================================
-ynh_script_progression "Setting up source files..."
-
-# Download, check integrity, uncompress and patch the source from manifest.toml
-ynh_setup_source --dest_dir="$install_dir"
-
-# Download and extract temporal
-ynh_setup_source --source_id="temporal" --dest_dir="$install_dir/temporal"
 
 #=================================================
 # APP INITIAL CONFIGURATION
