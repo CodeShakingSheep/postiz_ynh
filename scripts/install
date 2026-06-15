@@ -33,11 +33,11 @@ ynh_setup_source --source_id="temporal" --dest_dir="$install_dir/temporal"
 ynh_script_progression "Installing dependencies..."
 
 PNPM_VERSION=$(sed -n 's/.*"packageManager":\s*"pnpm@\([^"]*\)".*/\1/p' $install_dir/package.json)
-npm install -g "pnpm@${PNPM_VERSION}"
+#npm install -g "pnpm@${PNPM_VERSION}"
 # https://github.com/pnpm/pnpm/issues/8949
-#npm install --global corepack@latest
-#corepack enable pnpm
-#corepack use pnpm@latest
+npm install --global corepack@latest
+corepack enable pnpm
+corepack use pnpm@${PNPM_VERSION}
 
 #=================================================
 # APP INITIAL CONFIGURATION
