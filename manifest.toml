@@ -66,11 +66,11 @@ ram.runtime = "2048M"
     autoupdate.strategy = "latest_github_release"
 
     [resources.sources.temporal]
-    amd64.url = "https://github.com/temporalio/temporal/releases/download/v1.31.1/temporal_1.31.1_linux_amd64.tar.gz"
-    amd64.sha256 = "6d68bea8783046c4e48e595798365df7c325cda65001ee744d35cb5b67f7ba63"
+    amd64.url = "https://github.com/temporalio/cli/releases/download/v1.7.2/temporal_cli_1.7.2_linux_amd64.tar.gz"
+    amd64.sha256 = "e2f548af84e820b7d71f25fc6461a4e6a1ab7cdb6a80fde3c375641b0772375b"
 
-    arm64.url = "https://github.com/temporalio/temporal/releases/download/v1.31.1/temporal_1.31.1_linux_arm64.tar.gz"
-    arm64.sha256 = "ba055fbb0796d972e213538598ffdc761d06d710b6734afbed243e2f06a12f6c"
+    arm64.url = "https://github.com/temporalio/cli/releases/download/v1.7.2/temporal_cli_1.7.2_linux_arm64.tar.gz"
+    arm64.sha256 = "0d60307cf036f5e29cf0d298dabc9dd62f1cce80f72cbfdbdb0e54ad7790a701"
     
     in_subdir = false
     #autoupdate.strategy = "latest_github_release"
