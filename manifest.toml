@@ -2,7 +2,7 @@
 
 packaging_format = 2
 
-id = "psotiz"
+id = "postiz"
 name = "Postiz"
 description.en = "The ultimate agentic social media scheduling tool"
 description.fr = "L'outil ultime de planification agentique des réseaux sociaux"
