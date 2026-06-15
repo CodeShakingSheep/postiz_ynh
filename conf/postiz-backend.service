@@ -10,7 +10,7 @@ Group=__APP__
 WorkingDirectory=__INSTALL_DIR__/
 Environment="PATH=__PATH_WITH_NODEJS__"
 EnvironmentFile=__INSTALL_DIR__/.env
-ExecStart=${PNPM_BIN} run start:prod:backend
+ExecStart=__NODEJS_DIR__/pnpm run start:prod:backend
 Restart=on-failure
 RestartSec=5
 
