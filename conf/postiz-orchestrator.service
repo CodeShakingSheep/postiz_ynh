@@ -5,11 +5,12 @@ Requires=postiz-temporal.service
 
 [Service]
 Type=simple
-User=root
-WorkingDirectory=/opt/postiz
-EnvironmentFile=/opt/postiz/.env
+User=__APP__
+Group=__APP__
+WorkingDirectory=__INSTALL_DIR__/
+Environment="PATH=__PATH_WITH_NODEJS__"
+EnvironmentFile=__INSTALL_DIR__/.env
 ExecStart=${PNPM_BIN} run start:prod:orchestrator
-Environment=NODE_OPTIONS=--max-old-space-size=384
 Restart=on-failure
 RestartSec=5
 

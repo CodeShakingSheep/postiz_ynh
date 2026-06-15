@@ -4,8 +4,9 @@ After=network.target
 
 [Service]
 Type=simple
-User=root
-ExecStart=/opt/temporal/temporal server start-dev --db-filename /opt/temporal/temporal.db --log-format json --log-level warn
+User=__APP__
+Group=__APP__
+ExecStart=__INSTALL_DIR__/temporal/temporal server start-dev --db-filename __INSTALL_DIR__/temporal/temporal.db --log-format json --log-level warn
 Restart=on-failure
 RestartSec=5
 

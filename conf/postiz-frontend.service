@@ -4,12 +4,13 @@ After=network.target postiz-backend.service
 
 [Service]
 Type=simple
-User=root
-WorkingDirectory=/opt/postiz
-EnvironmentFile=/opt/postiz/.env
+User=__APP__
+Group=__APP__
+WorkingDirectory=__INSTALL_DIR__/
+Environment="PATH=__PATH_WITH_NODEJS__"
+EnvironmentFile=__INSTALL_DIR__/.env
 Environment=PORT=4200
 ExecStart=${PNPM_BIN} run start:prod:frontend
-Environment=NODE_OPTIONS=--max-old-space-size=512
 Restart=on-failure
 RestartSec=5
 
