@@ -4,8 +4,8 @@ packaging_format = 2
 
 id = "psotiz"
 name = "Postiz"
-description.en = "📨 The ultimate agentic social media scheduling tool"
-description.fr = "📨 L'outil ultime de planification agentique des réseaux sociaux"
+description.en = "The ultimate agentic social media scheduling tool"
+description.fr = "L'outil ultime de planification agentique des réseaux sociaux"
 version = "2.21.8~ynh1"
 
 maintainers = ["CodeShakingSheep"]
@@ -63,8 +63,16 @@ ram.runtime = "2048M"
     [resources.sources.main]
     url = "https://github.com/gitroomhq/postiz-app/archive/refs/tags/v2.21.8.tar.gz"
     sha256 = "89d1caaf83df9baf4abcc16ddd2b935607c086aa84ac097906b481e213d67a19"
-
     autoupdate.strategy = "latest_github_release"
+
+    [resources.sources.temporal]
+    url = "https://github.com/temporalio/temporal/releases/download/v1.31.1/temporal_1.31.1_linux_amd64.tar.gz"
+    sha256 = "6d68bea8783046c4e48e595798365df7c325cda65001ee744d35cb5b67f7ba63"
+    autoupdate.strategy = "latest_github_release"
+
+    [resources.ports]
+        main.default = 3000
+        frontend.default = 4200
 
     [resources.system_user]
 
@@ -75,10 +83,8 @@ ram.runtime = "2048M"
     [resources.permissions]
     main.url = "/"
 
-    [resources.ports]
-
     [resources.apt]
-    packages = ""
+    packages = "nginx, redis-server"
 
     [resources.database]
     type = "postgresql"
