@@ -72,6 +72,7 @@ ram.runtime = "2048M"
     arm64.url = "https://github.com/temporalio/temporal/releases/download/v1.31.1/temporal_1.31.1_linux_arm64.tar.gz"
     arm64.sha256 = "ba055fbb0796d972e213538598ffdc761d06d710b6734afbed243e2f06a12f6c"
     
+    in_subdir = false
     #autoupdate.strategy = "latest_github_release"
 
     [resources.ports]
