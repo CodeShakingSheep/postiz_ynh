@@ -1,0 +1,17 @@
+[Unit]
+Description=Postiz Backend
+After=network.target postgresql.service redis-server.service postiz-temporal.service
+Requires=postgresql.service redis-server.service
+
+[Service]
+Type=simple
+User=root
+WorkingDirectory=/opt/postiz
+EnvironmentFile=/opt/postiz/.env
+ExecStart=${PNPM_BIN} run start:prod:backend
+Environment=NODE_OPTIONS=--max-old-space-size=512
+Restart=on-failure
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target

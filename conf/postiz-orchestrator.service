@@ -1,0 +1,17 @@
+[Unit]
+Description=Postiz Orchestrator
+After=network.target postiz-temporal.service postiz-backend.service
+Requires=postiz-temporal.service
+
+[Service]
+Type=simple
+User=root
+WorkingDirectory=/opt/postiz
+EnvironmentFile=/opt/postiz/.env
+ExecStart=${PNPM_BIN} run start:prod:orchestrator
+Environment=NODE_OPTIONS=--max-old-space-size=384
+Restart=on-failure
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target
