@@ -84,7 +84,7 @@ ram.runtime = "2048M"
     main.url = "/"
 
     [resources.apt]
-    packages = "nginx, redis-server"
+    packages = "nginx, postgresql, redis-server"
 
     [resources.database]
     type = "postgresql"
