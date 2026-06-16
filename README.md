@@ -20,7 +20,7 @@ The ultimate agentic social media scheduling tool
 
 
 ## Screenshots
-![Screenshot of Postiz](./doc/screenshots/Postiz.png)
+![Screenshot of Postiz](./doc/screenshots/postiz.png)
 
 ## 📦 Developer info
 
