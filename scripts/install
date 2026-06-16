@@ -33,8 +33,6 @@ ynh_setup_source --source_id="temporal" --dest_dir="$install_dir/temporal"
 ynh_script_progression "Installing dependencies..."
 
 PNPM_VERSION=$(sed -n 's/.*"packageManager":\s*"pnpm@\([^"]*\)".*/\1/p' $install_dir/package.json)
-#npm install -g "pnpm@${PNPM_VERSION}"
-# https://github.com/pnpm/pnpm/issues/8949
 npm install --global corepack@latest
 corepack enable pnpm
 corepack use pnpm@${PNPM_VERSION}
@@ -65,7 +63,7 @@ pushd $install_dir
     ynh_exec_as_app pnpm run prisma-db-push
 popd
 
-#chown -R $app:$app $install_dir
+chown -R $app:$app $install_dir
 
 #=================================================
 # SYSTEM CONFIGURATION
