@@ -30,12 +30,30 @@ ynh_setup_source --source_id="temporal" --dest_dir="$install_dir/temporal"
 #=================================================
 # UPDATE A CONFIG FILE
 #=================================================
-ynh_script_progression "Updating $app's configuration files..."
+#ynh_script_progression "Updating $app's configuration files..."
 
 #ynh_config_add --template=".env" --destination="$install_dir/.env"
 
-#chmod 400 "$install_dir/some_config_file"
-#chown "$app:$app" "$install_dir/some_config_file"
+#=================================================
+# INSTALL POSTIZ
+#=================================================
+ynh_script_progression "Building the app..."
+
+pushd $install_dir
+    ynh_script_progression "Installing the app..."
+
+    ynh_exec_as_app NODE_OPTIONS="--max-old-space-size=4096" pnpm install 
+
+    ynh_script_progression "Building the app..."
+
+    ynh_exec_as_app NODE_OPTIONS="--max-old-space-size=4096" TURBO_TELEMETRY_DISABLED=1 pnpm build
+
+    ynh_script_progression "Running DB migrations of the app..."
+
+    ynh_exec_as_app pnpm run prisma-db-push
+popd
+
+chown -R $app:$app $install_dir
 
 #=================================================
 # REAPPLY SYSTEM CONFIGURATION
