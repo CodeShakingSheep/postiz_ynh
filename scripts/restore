@@ -15,6 +15,13 @@ ynh_restore "$install_dir"
 
 chown -R "$app:www-data" "$install_dir"
 
+ynh_script_progression "Reinstalling pnpm..."
+
+PNPM_VERSION=$(sed -n 's/.*"packageManager":\s*"pnpm@\([^"]*\)".*/\1/p' $install_dir/package.json)
+npm install --global corepack@latest
+corepack enable pnpm
+corepack use pnpm@${PNPM_VERSION}
+
 #=================================================
 # RESTORE THE DATA DIRECTORY
 #=================================================
@@ -38,7 +45,8 @@ ynh_script_progression "Restoring system configurations related to $app..."
 
 ynh_restore "/etc/nginx/conf.d/$domain.d/$app.conf"
 
-ynh_restore /var/log/$app 
+ynh_restore /var/log/$app
+chown $app:$app /var/log/$app
 
 ynh_restore "/etc/systemd/system/$app-backend.service"
 systemctl enable "$app-backend.service" --quiet
