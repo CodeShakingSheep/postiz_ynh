@@ -65,7 +65,11 @@ ynh_restore "/var/log/$app/"
 #=================================================
 ynh_script_progression "Reloading NGINX web server and $app's service..."
 
-ynh_systemctl --service="$app" --action="start"
+# Start systemd services
+ynh_systemctl --service="$app-backend" --action="start"
+ynh_systemctl --service="$app-frontend" --action="start"
+ynh_systemctl --service="$app-orchestrator" --action="start"
+ynh_systemctl --service="$app-temporal" --action="start"
 
 ynh_systemctl --service=nginx --action=reload
 
