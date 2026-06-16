@@ -72,6 +72,9 @@ ynh_script_progression "Adding system configurations related to $app..."
 
 ynh_config_add_nginx
 
+mkdir -p /var/log/$app
+chown -R $app:$app /var/log/$app
+
 # Backend
 ynh_config_add_systemd --service="$app-backend" --template="postiz-backend.service"
 yunohost service add "$app-backend" --description="Postiz backend" --log="/var/log/$app/$app-backend.log"

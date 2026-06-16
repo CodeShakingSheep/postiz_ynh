@@ -38,6 +38,8 @@ ynh_script_progression "Restoring system configurations related to $app..."
 
 ynh_restore "/etc/nginx/conf.d/$domain.d/$app.conf"
 
+ynh_restore /var/log/$app 
+
 ynh_restore "/etc/systemd/system/$app-backend.service"
 systemctl enable "$app-backend.service" --quiet
 ynh_restore "/etc/systemd/system/$app-frontend.service"
