@@ -47,7 +47,7 @@ systemctl enable "$app-orchestrator.service" --quiet
 ynh_restore "/etc/systemd/system/$app-temporal.service"
 systemctl enable "$app-temporal.service" --quiet
 
-yunohost service add "$app-beackend" --description="Postiz backend" --log="/var/log/$app/$app-backend.log"
+yunohost service add "$app-backend" --description="Postiz backend" --log="/var/log/$app/$app-backend.log"
 yunohost service add "$app-frontend" --description="Postiz frontend" --log="/var/log/$app/$app-frontend.log"
 yunohost service add "$app-orchestrator" --description="Postiz orchestrator" --log="/var/log/$app/$app-orchestrator.log"
 yunohost service add "$app-temporal" --description="Postiz temporal" --log="/var/log/$app/$app-temporal.log"
