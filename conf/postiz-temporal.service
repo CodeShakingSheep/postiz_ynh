@@ -1,0 +1,14 @@
+[Unit]
+Description=Temporal Dev Server (Postiz)
+After=network.target
+
+[Service]
+Type=simple
+User=__APP__
+Group=__APP__
+ExecStart=__INSTALL_DIR__/temporal/temporal server start-dev --db-filename __INSTALL_DIR__/temporal/temporal.db --log-format json --log-level warn
+Restart=on-failure
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target

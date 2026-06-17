@@ -1,1 +1,1 @@
-Ceci est une fausse description des fonctionalités de l'app
+L'outil ultime de planification agentique des réseaux sociaux
