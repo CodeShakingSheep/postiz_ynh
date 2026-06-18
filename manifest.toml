@@ -6,7 +6,7 @@ id = "postiz"
 name = "Postiz"
 description.en = "The ultimate agentic social media scheduling tool"
 description.fr = "L'outil ultime de planification agentique des réseaux sociaux"
-version = "2.21.8~ynh1"
+version = "2.21.9~ynh1"
 
 maintainers = ["CodeShakingSheep"]
 
@@ -61,8 +61,8 @@ ram.runtime = "2048M"
     [resources.sources]
 
     [resources.sources.main]
-    url = "https://github.com/gitroomhq/postiz-app/archive/refs/tags/v2.21.8.tar.gz"
-    sha256 = "89d1caaf83df9baf4abcc16ddd2b935607c086aa84ac097906b481e213d67a19"
+    url = "https://github.com/gitroomhq/postiz-app/archive/refs/tags/v2.21.9.tar.gz"
+    sha256 = "4c856a14989eec0667a3f50ad7815f6115923b05094b850d3430cb498be834fc"
     autoupdate.strategy = "latest_github_release"
 
     [resources.sources.temporal]
